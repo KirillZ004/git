@@ -3,82 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новая жизнь | Главная страница</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles/settings.css">
     <link rel="stylesheet" href="styles/pages/index.css">
+    <title>Новая жизнь | Главная страница</title>   
 </head>
 <body>
     <header class="header">
-    <div class="container">
-        <a href="index.html" class="logo">
-            New Life
-        </a>
-        <ul>
-            <li>
-                <a href="">поиск</a>
-            </li>
-            
-
-            <li>
-                <a href=""> о нас</a>
-            </li>
-        
-
-            <li>
-                <a href="">новости</a>
-            </li>
-
-        </ul>
-    </div>
-</header>
-<main>
-    <section>
         <div class="container">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img class="swiper-slide-img" src="jpg/1.jpg" alt="Природа">
-                        <p>вода, лес, горы</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="swiper-slide-img" src="jpg/2.jpg" alt="Природа">
-                        <p>Зимний вид</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="swiper-slide-img" src="jpg/3.jpg" alt="Башня">
-                        <p>Вниз снизу башни</p>
-                    </div>
-                    <div class="swiper-slide"></div>
-                        <img class="swiper-slide-img" src="jpg/1.jpg" alt="Природа">
-                        <p>вода, лес, горы</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="swiper-slide-img" src="jpg/1.jpg" alt="Природа">
-                        <p>Зимний вид</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="swiper-slide-img" src="jpg/1.jpg" alt="Башня">
-                        <p>Вниз снизу башни</p>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
+            <div class="logo">
+                <a href="/">
+                    <i class="fa-solid fa-paw"></i>
+                    <span>Новая жизнь</span>
+                </a>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li>
+                        <form class="search-form">
+                            <input type="search" placeholder="Поиск..." class="search-input">
+                            <button type="submit" class="search-button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </li>
+                    <li><button class="nav-button"><i class="fa-solid fa-user-plus"></i> Регистрация</button></li>
+                    <li><button class="nav-button"><i class="fa-solid fa-user"></i> Личный кабинет</button></li>
+                    <li><button class="nav-button"><i class="fa-solid fa-plus"></i> Добавить</button></li>
+                    <li><button class="nav-button"><i class="fa-solid fa-comments"></i> Отзывы</button></li>
+                </ul>
+            </nav>
         </div>
-    </section>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </header>
+    <main>
+        <section>
+            <section class="short-search">
+                <div class="container">
+                    <form>
+                        <label for="type-animal">Тип животного</label>
+                        <select name="type-animal" id="type-animal">
+                            <option value="cat">Кошка</option>
+                            <option value="dog">Собака</option> 
+                        </select>
+                        <button type="submit">поиск</button>
+                    </form>
+                </div>
+            </section>>
+    </main>
+            <div class="container">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="swiper-slide-img" src="jpg/1.jpg" alt="Природа">
+                            <p>вода, лес, горы</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-slide-img" src="jpg/2.jpg" alt="Природа">
+                            <p>Зимний вид</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-slide-img" src="jpg/3.jpg" alt="Башня">
+                            <p>Вниз снизу башни</p>
+                        </div>
+                        <div class="swiper-slide"></div>
+                            <img class="swiper-slide-img" src="jpg/1.jpg" alt="Природа">
+                            <p>вода, лес, горы</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-slide-img" src="jpg/2.jpg" alt="Природа">
+                            <p>Зимний вид</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-slide-img" src="jpg/3.jpg" alt="Башня">
+                            <p>Вниз снизу башни</p>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                  </div>
+            </div>
+        </section>
+        <section class="facts"> 
+            <div class="container">
+                <h2>Факты о животных</h2>
+                <ul>
+                    <li>
+                        <i class="fa fa-ravelry" aria-hidden="true"></i>
+                        <h3>Помогли найти более 500 животных</h3>
+                    </li>
+                    <li>
+                        <i class="fa fa-ravelry" aria-hidden="true"></i>
+                        <h3>Помогли найти более 300 животных</h3>
+                    </li>
+                    <li>
+                        <i class="fa fa-ravelry" aria-hidden="true"></i>
+                        <h3>Помогли найти более 100 животных</h3>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
 </body>
 </html>
