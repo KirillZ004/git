@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система управления конференциями</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   
+    <main>
+        <section id="login">
+            <h2>Вход в систему</h2>
+            <form id="roleForm">
+                <label for="role">Выберите статус:</label>
+                <select id="role" name="role">
+                    <option value="zaved">Заведующий подразделением</option>
+                    <option value="texnic">Техник</option>
+                    <option value="organizator">Организатор</option>
+                </select>
+                <br>
+                <button type="submit">Войти</button>
+            </form>
+        </section>
+
+        <section id="adminPanel" style="display:none;">
+            <h2>Панель заведующего подразделением</h2>
+            <button id="addUser">Добавить нового сотрудника</button>
+            <button id="viewOrders">Просмотреть все заказы</button>
+            <button id="changeStatus">Изменить статус сотрудника</button>
+        </section>
+
+        <section id="technicianPanel" style="display:none;">
+            <h2>Панель техника</h2>
+            <button id="viewClientOrders">Просмотреть заказы от клиентов</button>
+            <button id="changeOrderStatus">Изменить статус заказа</button>
+        </section>
+
+        <section id="organizerPanel" style="display:none;">
+            <h2>Панель организатора</h2>
+            <button id="createOrder">Создать новый заказ</button>
+            <button id="viewOrders">Просмотреть все заказы</button>
+        </section>
+    </main>
+
+<script>
+    document.getElementById('roleForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        const role = document.getElementById('role').value; 
+        let redirectUrl = '';
+
+        switch (role) {
+            case 'zaved':
+                redirectUrl = 'zaved.html';
+                break;
+            case 'texnic':
+                redirectUrl = 'texnic.html';
+                break;
+            case 'organizator':
+                redirectUrl = 'organizator.html';
+                break;
+        }
+
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
+        }
+    });
+</script>
+</body>
+</html>

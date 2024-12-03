@@ -1,0 +1,48 @@
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+td.status {
+    font-weight: bold;
+    text-align: center;
+}
+
+td.status.completed {
+    color: green;
+}
+
+td.status.pending {
+    color: orange;
+}
+
+td.status.cancelled {
+    color: red;
+}

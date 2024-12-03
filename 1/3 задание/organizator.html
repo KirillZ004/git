@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Организатор</title>
+    <link rel="stylesheet" href="css/organizator.css">
+</head>
+<body>
+    <h1>Организатор</h1>
+    
+    <section>
+        <h2>Создать новый заказ</h2>
+        <form id="newOrderForm">
+            <label for="conferenceName">Название конференции:</label>
+            <input type="text" id="conferenceName" name="conferenceName" required>
+            
+            <label for="guestCount">Количество гостей:</label>
+            <input type="number" id="guestCount" name="guestCount" required>
+            
+            <label for="equipment">Требуемое оборудование:</label>
+            <input type="text" id="equipment" name="equipment" required>
+            
+            <button type="submit">Создать заказ</button>
+        </form>
+    </section>
+    
+    <section>
+        <h2>Список всех заказов</h2>
+        <table id="ordersTable">
+            <tr>
+                <th>Название конференции</th>
+                <th>Количество гостей</th>
+                <th>Статус</th>
+            </tr>
+            <tr>
+                <td>Конференция про новые технологии</td>
+                <td>15</td>
+                <td>В процессе</td>
+            </tr>
+            <tr>
+                <td>Онлайн обучение языку программирования с++</td>
+                <td>5</td>
+                <td>Завершен</td>
+            </tr>
+            <tr>
+                <td>Вебинар по программированию</td>
+                <td>40</td>
+                <td>Запланирован</td>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>
