@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/pages/register.css">
+</head>
+<body>
+    <header class="header"> 
+        <div class="container"> 
+            <a href="glavn.html">На главную</a> 
+        </div> 
+    </header> 
+    <main> 
+        <section class="registration-form"> 
+            <h2>Регистрация</h2>
+            <form> 
+                <label for="email">Email</label> 
+                <input type="email" id="email" placeholder="example@mail.com" required> 
+                
+                <label for="first-name">Имя</label> 
+                <input type="text" id="first-name" placeholder="Ваше имя" required> 
+                
+                <label for="last-name">Фамилия</label> 
+                <input type="text" id="last-name" placeholder="Ваша фамилия" required> 
+                
+                <label for="phone">Телефон</label> 
+                <input type="tel" id="phone" placeholder="Ваш телефон" required> 
+                
+                <label for="password">Пароль</label> 
+                <input type="password" id="password" name="password" required> 
+                
+                <label for="confirm-password">Повтор пароля</label> 
+                <input type="password" id="confirm-password" name="confirm-password" required> 
+                
+                <div class="consent">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">Согласен на обработку персональных данных</label>
+                </div>
+                
+                <button type="submit" class="submit-button">Зарегистрироваться</button> 
+                <a href="login.html">Уже есть аккаунт? Войти</a> 
+            </form> 
+        </section> 
+    </main> 
+</body>
+</html>

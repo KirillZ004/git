@@ -1,0 +1,95 @@
+html,body{
+    height: 100%;
+}
+body{
+display: flex;
+flex-direction: column;
+}
+main{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+header{
+    padding: 32px 0;
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+.info .container{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+}
+.info li{
+    font-size: 18px;
+    margin:0 0 32px;
+}
+img{
+    max-width: 300px;
+    max-width:300px;
+}
+.info{
+    padding: 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.hero {
+    padding: 96px 0;
+    margin-top: 50px;
+}
+
+.hero h2 {
+    display: inline-block;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 16px 48px 0;
+}
+
+.ad-list {
+    display: flex; /* Используем Flexbox */
+    flex-direction: row; /* Элементы располагаются в столбик */
+    gap: 16px; /* Промежуток между элементами */
+}
+
+.ad-item {
+    display: flex; /* Для выравнивания содержимого внутри блока */
+    flex-direction: column;
+     /* Элементы располагаются вертикально */
+    padding: 10px; /* Отступы внутри блока */
+    border: 1px solid #ccc; /* Граница для отделения блоков */
+    border-radius: 8px; /* Закругленные углы */
+    align-items: center; /* Центрируем содержимое по вертикали */
+}
+
+.ad-item img {
+    width: 360px; /* Устанавливаем фиксированную ширину для всех изображений */
+    height: 360px; /* Устанавливаем фиксированную высоту для всех изображений */
+    object-fit: cover; /* Обеспечиваем обрезку изображения для сохранения пропорций */
+    margin-bottom: 10px; /* Отступ снизу для разделения с текстом */
+}
+
+.hero img {
+    max-width: 100%;
+    object-fit: cover;
+}
+    

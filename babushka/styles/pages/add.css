@@ -1,0 +1,43 @@
+.header {
+    padding: 32px 0;
+
+}
+html, body{
+    height: 100%;
+}
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+main{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #e0f7fa;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
