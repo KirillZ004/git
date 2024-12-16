@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start(); 
+include_once 'api/db.php';
+$posts=$db
+->query("SELECT * FROM posts WHERE ststus= 'active' LIMIT 6")
+->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -46,52 +51,22 @@
             <div class="container">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                      <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    <div class="swiper-slide"><img src="images/img/negr.jpg">
-                        <small>Негр</small> 
-                        <p>А негр нахуй может мне тут не сидеть и реп нахуй не исполнять.</p>
-                        <a href="#">Подробнее</a>
-                    </div>
-                    </div>
+                        <?php
+                        foreach($posts as $key =>$value) {
+                            $type = $value['type_animal'];
+                            $desc = $value['description'];
+                            $id = $value['id'];
+                            echo"
+                            <div class='swiper-slide'>
+                            <img src ='images/img/negr.jpg'>
+                            <small>$type</small>
+                            <p>$desc</p>
+                            <a href='into.php?id=$id'>Подробнее</a>
+                            </div>
+                            ";
+                        }
+                        ?>
+
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                   </div>
