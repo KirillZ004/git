@@ -1,20 +1,20 @@
 <?php session_start(); 
 
-include_once ('api/db.php');
+// Проверка аутентификации
 
-if(array_key_exists('token', $_SESSION)){
-    //Если токен есть, то проверяем его в базе данных
+include_once('api/db.php');
+
+if (array_key_exists('token', $_SESSION)) {
     $token = $_SESSION['token'];
     $userId = $db->query("
-    SELECT id FROM users WHERE api_token = '$token'
+        SELECT id FROM users WHERE api_token = '$token'
     ")->fetchAll();
 
-    if(!empty($userId)){
-        //Удаление токена из сессии
+    if (!empty($userId)) {
         header('Location: profile.php');
     }
-
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">

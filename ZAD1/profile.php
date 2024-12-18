@@ -1,27 +1,22 @@
 <?php session_start(); 
 
-//Проверка на аутентификацию
+// Проверка аутентификации
 
-include_once ('api/db.php');
+include_once('api/db.php');
 
-if(array_key_exists('token', $_SESSION)){
-    //Если токен есть, то проверяем его в базе данных
+if (array_key_exists('token', $_SESSION)) {
     $token = $_SESSION['token'];
     $userId = $db->query("
-    SELECT id FROM users WHERE api_token = '$token'
+        SELECT id FROM users WHERE api_token = '$token'
     ")->fetchAll();
 
-    if(empty($userId)){
-        //Удаление токена из сессии
+    if (empty($userId)) {
         unset($_SESSION['token']);
         header('Location: login.php');
     }
-    
-} else{
-    //Если токена нет, то перекидываем на главную
+} else {
     header('Location: login.php');
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -62,9 +57,9 @@ if(array_key_exists('token', $_SESSION)){
                                 <li><i class="fa fa-paw"></i> Питомцев: <span>5</span></li>
                                 <li><i class="fa fa-hourglass-end"></i> Дата регистрации: <span>13.11.2024</span></li>
                             </ul>
-                            <button class="logout-btn" onclick="window.location.href='glavn.php'">
+                            <a  href="api/logoutUser.php" class="logout-btn">
                                 <i class="fa fa-sign-out"></i> Выйти
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -2,19 +2,18 @@
 include_once 'api/db.php';
 $searchParams = $_GET;
 $posts;
-if(!empty($searchParams)) {
-    $animalType =$searchParams ['animal-type'];
-    $address = $searchParams['address'];
+if (!empty($searchParams)) {
+    $animalType = array_key_exists('animal-type',$_GET) ?
+    $searchParams['animal-type'] : '';
+    $address = array_key_exists('address',$_GET) ? $searchParams['address'] : '';
 
     $posts = $db->query("
-        SELECT * FROM  posts WHERE 
+        SELECT * FROM posts WHERE 
         (type_animal = '$animalType' OR address = '$address')
         AND (status = 'active')
-        ")->fetchAll();
+    ")->fetchAll();
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -51,44 +50,36 @@ if(!empty($searchParams)) {
                             <th>Клеймо</th>
                             <th>Район</th>
                             <th>Дата находки</th>
-                            <th>Контакты</th>
+                            <th>Ссылка</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Пример строки таблицы -->
-                     <?php
-                     if(!empty($posts)){
-                        foreach ($posts as $key => $value) {
-                            $type = $value['type_animal'];
-                            $desc = $value['description'];
-                            $mark = $value['mark'];
-                            $address = $value['address'];
-                            $date = $value['date_found'];
-                            $id = $value['id'];
-                            echo"
-                                <tr>
-                                    <td>$type</td>
-                                    <td><img src='images/img/pit.jpg' alt='Фото животного'></td>
-                                    <td>$desc</td>
-                                    <td>$mark</td>
-                                    <td>$address</td>
-                                    <td>$date</td>
-                                    <td><a href='info.php?id=$id'>Подробнее</a></td>
-                                </tr>
-                            ";
-                        }}
-                    ?>
+                        <?php
+                            if (!empty($posts)) {
+                                foreach ($posts as $key => $value) {
+                                    $type = $value['type_animal'];
+                                    $desc = $value['description'];
+                                    $mark = $value['mark'];
+                                    $address = $value['address'];
+                                    $date = $value['date_found'];
+                                    $id = $value['id'];
+                                    echo "
+                                        <tr>
+                                            <td>$type</td>
+                                            <td><img src='images/img/pit.jpg' alt='Фото животного'></td>
+                                            <td>$desc</td>
+                                            <td>$mark</td>
+                                            <td>$address</td>
+                                            <td>$date</td>
+                                            <td><a href='info.php?id=$id'>Подробнее</a></td>
+                                        </tr>
+                                    ";
+                                }
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
-        </section>
-
-        <!-- Пагинация -->
-        <section class="pagination">
-            <button class="pagination-btn">1</button>
-            <button class="pagination-btn">2</button>
-            <button class="pagination-btn">3</button>
-            <button class="pagination-btn">...</button>
         </section>
     </main>
 </body>

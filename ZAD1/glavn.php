@@ -1,8 +1,8 @@
 <?php session_start(); 
 include_once 'api/db.php';
-$posts=$db
-->query("SELECT * FROM posts WHERE ststus= 'active' LIMIT 6")
-->fetchAll();
+$posts = $db
+    ->query("SELECT * FROM posts WHERE status = 'active' LIMIT 6")
+    ->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -52,21 +52,21 @@ $posts=$db
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <?php
-                        foreach($posts as $key =>$value) {
-                            $type = $value['type_animal'];
-                            $desc = $value['description'];
-                            $id = $value['id'];
-                            echo"
-                            <div class='swiper-slide'>
-                            <img src ='images/img/negr.jpg'>
-                            <small>$type</small>
-                            <p>$desc</p>
-                            <a href='into.php?id=$id'>Подробнее</a>
-                            </div>
-                            ";
-                        }
+                            foreach ($posts as $key => $value) {
+                                $type = $value['type_animal'];
+                                $desc = $value['description'];
+                                $id = $value['id'];
+                                echo "
+                                    <div class='swiper-slide'>
+                                        <img src='images/img/negr.jpg'>
+                                        <small>$type</small> 
+                                        <p>$desc</p>
+                                        <a href='info.php?id=$id'>Подробнее</a>
+                                    </div>
+                                ";
+                            }
                         ?>
-
+                    </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                   </div>
@@ -74,9 +74,9 @@ $posts=$db
         </section>
         <section class="short-search">
             <div class="container">
-                <form>
+                <form method = "GET" action="poisk.php">
                     <label for="type-animal">Вид животного</label>
-                    <select name="type-animal" id="type-animal">
+                    <select name="animal-type" id="type-animal">
                         <option value="Cat">Кот</option>
                         <option value="Dog">Собака</option>
                     </select>
@@ -106,14 +106,13 @@ $posts=$db
         <section class="search"> 
             <div class="container"> 
                 <div class="search-item"> 
-                    <form> 
+                    <form method ="$_GET" action = "poisk.php"> 
                         <label for="place">Район</label> 
-                        <select name="place" id="place"> 
-                            <option value="0">Правый берег</option> 
-                            <option value="1">Левый берег</option> 
+                        <select name="address" id="place"> 
+                            <option value="adres adres d 17 25">adres adres d 17 25 </option>  
                         </select> 
                         <label for="animal">Вид животного</label> 
-                        <select name="animal" id="animal"> 
+                        <select name="animal_type" id="animal"> 
                         <option value="cat">Кот</option> 
                         <option value="dog">Собака</option> 
                         <option value="rabbit">Кролик</option> 

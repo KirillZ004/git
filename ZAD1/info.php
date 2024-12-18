@@ -1,25 +1,23 @@
 <?php session_start(); 
-include_once("api/db.php");
-if (!array_key_exists('id', $_GET)){
-  header("Location: poisk.php"); 
+include_once 'api/db.php';
+if (!array_key_exists('id', $_GET)) {
+  header("Location: poisk.php");
   exit;
 }
-//
-$id= $_GET['id'];
+// 
+$id = $_GET['id'];
 $post = $db->query(
-  "SELECT* FROM posts WHERE id = $id"
-  )->fetchAll();
-  if (empty($post)) {
-    header("Location: poisk.php");
-    exit;
-  } 
-  echo json_encode($post);
-  //next
-  $userId = $post[0] ['user_id'];
-  $user = $db->query(
-    "SELECT * FROM users WHERE id = '$userId'"
-  )->fetchAll();
-  echo json_encode($post);
+  "SELECT * FROM posts WHERE id = '$id'"
+)->fetchAll();
+if (empty($post)) {
+  header("Location: poisk.php");
+  exit;
+}
+// next
+$userId = $post[0]['user_id'];
+$user = $db->query(
+  "SELECT * FROM users WHERE id = '$userId'"
+)->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -125,23 +123,16 @@ $post = $db->query(
                       <?php echo $post[0]['date_found']; ?>
                     </time>
                     <small>
-                      <?php echo $post[0]['status']; ?>
+                    <?php echo $post[0]['status']; ?>
                     </small>
                     <h2>
                       <?php echo $post[0]['type_animal']; ?>
                     </h2>
-                    <p>
-                      <?php echo $post[0]['address']; ?>
-                    </p>
-                    <p>
-                      <?php echo $post[0]['description']; ?>
-                    </p>
-                    <p>
-                      <?php echo $user[0]['name']. " ". $user[0]['surname']; ?>
-                    </p>
+                    <p><?php echo $post[0]['address']; ?></p>
+                    <p><?php echo $post[0]['description']; ?></p>
+                    <p><?php echo $user[0]['name'] . " " . $user[0]['surname'] ?></p>
                     <?php $phone = $user[0]['phone']; echo "<a href='tel:$phone'>$phone</a>"?>
                     <?php $email = $user[0]['email']; echo "<a href='mailto:$email'>$email</a>"?>
-                    
                 </div>
             </div>
         </section>

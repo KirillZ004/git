@@ -1,23 +1,20 @@
-<?php session_start();
+<?php session_start(); 
 
-//Проверка на аутентификацию
-include_once ('api/db.php');
+// Проверка аутентификации
 
-if(array_key_exists('token', $_SESSION)){
-    //Если токен есть, то проверяем его в базе данных
+include_once('api/db.php');
+
+if (array_key_exists('token', $_SESSION)) {
     $token = $_SESSION['token'];
     $userId = $db->query("
-    SELECT id FROM users WHERE api_token = '$token'
+        SELECT id FROM users WHERE api_token = '$token'
     ")->fetchAll();
 
-    if(empty($userId)){
-        //Удаление токена из сессии
+    if (empty($userId)) {
         unset($_SESSION['token']);
         header('Location: login.php');
     }
-    
-} else{
-    //Если токена нет, то перекидываем на главную
+} else {
     header('Location: login.php');
 }
 
@@ -46,31 +43,22 @@ if(array_key_exists('token', $_SESSION)){
 <main>
     <section class="add">
         <div class="container">
-            <form>
-                <label for="phone">Номер телефона</label>
-                <input type="tel" name="phone" id="phone" placeholder="Введите номер телефона">
-                <label for="email">Почта</label>
-                <input type="email" name="email" id="email" placeholder="Введите email">
+            <form method="POST" action="api/addPost.php">
                 <select name="type" id="type">
                     <option value="cat">Кот</option>
                     <option value="dog">Собака</option>
                 </select>
-                <label for="photo">Фотография животного</label>
-                <input type="file" name="photo" id="photo">
                 <label for="desc">Доп. инфа</label>
                 <textarea name="desc" id="desc"></textarea>
                 <label for="mark">Клеймо (если есть)</label>
                 <input type="text" name="mark" id="mark">
-                <select name="place" id="place">
-                    <option value="0">Кировский</option>
-                    <option value="1">Центр</option>
+                <select name="address" id="place">
+                    <option value="karasuk">Карасук</option>
+                    <option value="center">Центр</option>
                 </select>
                 <label for="date">Дата</label>
                 <input type="date" name="date" id="date">
-                <label for="agree">
-                    <input type="checkbox" name="agree" id="agree">
-                    Согласие на обработку персональных данных
-                </label>
+                <button type="submit">Добавить</button>
             </form>
         </div>
     </section>

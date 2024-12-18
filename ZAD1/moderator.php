@@ -1,29 +1,25 @@
-<?php session_start();
+<?php session_start(); 
 
-//Проверка на аутентификацию
+// Проверка аутентификации
 
-include_once ('api/db.php');
+include_once('api/db.php');
 
-if(array_key_exists('token', $_SESSION)){
-    //Если токен есть, то проверяем его в базе данных
+if (array_key_exists('token', $_SESSION)) {
     $token = $_SESSION['token'];
     $userId = $db->query("
-    SELECT id,type FROM users WHERE api_token = '$token'
+        SELECT id,type FROM users WHERE api_token = '$token'
     ")->fetchAll();
 
-    if(empty($userId)){
-        //Удаление токена из сессии
+    if (empty($userId)) {
         unset($_SESSION['token']);
         header('Location: login.php');
-    } else{
+    } else {
         $type = $userId[0]['type'];
-        if($type != 'mod'){
+        if ($type != 'mod') {
             header('Location: glavn.php');
         }
     }
-    
-} else{
-    //Если токена нет, то перекидываем на главную
+} else {
     header('Location: login.php');
 }
 
